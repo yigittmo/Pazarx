@@ -1,24 +1,19 @@
-# PazarX V1
+# PazarX — E-Ticaret/Pazaryeri Başlangıç Projesi
 
-Çok satıcılı e-ticaret pazaryeri başlangıç projesi.
+Bu klasör çalışan bir ön yüz demosudur.
 
-## Teknoloji
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Supabase Auth + PostgreSQL
-- Vercel deployment
+## Çalıştırma
+`index.html` dosyasını tarayıcıda açmanız yeterli.
 
-## Kurulum
-1. Node.js kurulu olduğundan emin ol.
-2. `npm install`
-3. `.env.example` dosyasını `.env.local` olarak kopyala.
-4. Supabase projesi oluştur ve `supabase/schema.sql` içeriğini SQL Editor'da çalıştır.
-5. Supabase URL ve Publishable Key değerlerini `.env.local` içine yaz.
-6. `npm run dev`
-7. Tarayıcıda `http://localhost:3000` aç.
+## Şu an var
+- Ana sayfa
+- Ürün kartları
+- Kategori filtreleme
+- Arama
+- Fiyat sıralama
+- Sepete ürün ekleme
+- Sepet modalı
+- Responsive mobil tasarım
 
-## Yayınlama
-GitHub'a yükle ve Vercel'de New Project ile repository'yi seç. Environment Variables bölümüne `.env.local` içindeki değerleri ekle.
-
-Not: Bu V1 arayüz + temel veri modeli iskeletidir. Gerçek ödeme, kargo, e-fatura, satıcı doğrulama ve üretim güvenliği ayrıca tamamlanmalıdır.
+## Sonraki aşama
+Gerçek bir Trendyol benzeri sistem için backend, veritabanı, kullanıcı/satıcı hesapları, admin paneli, ödeme ve kargo entegrasyonları eklenmelidir.
