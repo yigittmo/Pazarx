@@ -1,38 +1,14 @@
 <!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PazarX 2.0 — Online Pazaryeri</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PazarX 3.0 — Pazaryeri</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<header class="header">
-  <div class="logo">Pazar<span>X</span></div>
-  <div class="search"><input id="search" placeholder="Ürün, kategori veya marka ara..." oninput="searchProducts()"><button>🔎</button></div>
-  <div class="head-actions"><button onclick="openLogin()">👤 Giriş</button><button onclick="openCart()">🛒 <b id="count">0</b></button></div>
-</header>
-<nav class="nav">
-<button onclick="filter('Tümü')">Tümü</button><button onclick="filter('Elektronik')">Elektronik</button><button onclick="filter('Moda')">Moda</button><button onclick="filter('Ev Yaşam')">Ev Yaşam</button><button onclick="filter('Spor')">Spor</button><button onclick="filter('Güzellik')">Güzellik</button>
-</nav>
-<section class="hero">
-<div><span class="badge">PAZARX 2.0</span><h1>Aradığın ne varsa<br><strong>tek yerde.</strong></h1><p>Binlerce ürün, avantajlı fiyatlar ve modern alışveriş deneyimi.</p><button class="primary" onclick="document.getElementById('products').scrollIntoView()">Alışverişe Başla →</button></div>
-<div class="hero-card">⚡<b>Büyük Fırsatlar</b><small>Bugünün seçili ürünleri</small></div>
-</section>
-<section class="categories"><h2>Kategoriler</h2><div class="cat-grid">
-<button onclick="filter('Elektronik')">💻<b>Elektronik</b><small>Teknoloji</small></button>
-<button onclick="filter('Moda')">👕<b>Moda</b><small>Giyim</small></button>
-<button onclick="filter('Ev Yaşam')">🏠<b>Ev Yaşam</b><small>Yaşam</small></button>
-<button onclick="filter('Spor')">⚽<b>Spor</b><small>Spor & Outdoor</small></button>
-<button onclick="filter('Güzellik')">✨<b>Güzellik</b><small>Kişisel bakım</small></button>
-</div></section>
-<main>
-<div class="section-head"><div><h2>Öne Çıkan Ürünler</h2><p id="resultText"></p></div>
-<select onchange="sortProducts(this.value)"><option value="default">Sırala</option><option value="low">Fiyat: düşükten yükseğe</option><option value="high">Fiyat: yüksekten düşüğe</option></select></div>
-<div id="products" class="products"></div>
-</main>
-<div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modal-box" id="modalContent"></div></div>
-<footer><b>PazarX</b><span>© 2026 PazarX — Online Pazaryeri</span><span>Güvenli alışverişin yeni adresi.</span></footer>
-<script src="script.js"></script>
-</body>
-</html>
+<header class="header"><div class="logo">Pazar<span>X</span></div>
+<div class="search"><input id="search" placeholder="Ürün, kategori veya marka ara..." oninput="searchProducts()"><button>🔎</button></div>
+<div class="actions"><button onclick="openLogin()">👤 Hesabım</button><button onclick="openCart()">🛒 <b id="count">0</b></button></div></header>
+<nav><button onclick="filter('Tümü')">Tümü</button><button onclick="filter('Elektronik')">Elektronik</button><button onclick="filter('Moda')">Moda</button><button onclick="filter('Ev Yaşam')">Ev Yaşam</button><button onclick="filter('Spor')">Spor</button><button onclick="filter('Güzellik')">Güzellik</button></nav>
+<section class="hero"><div><span>PAZARX 3.0</span><h1>Alışverişin yeni<br><strong>merkezi.</strong></h1><p>Ürünleri keşfet, mağazaları incele, favorilerini oluştur.</p><button onclick="document.getElementById('products').scrollIntoView()">Alışverişe Başla →</button></div><div class="heroCard">⚡<b>Fırsat Ürünleri</b><small>Bugünün seçtikleri</small></div></section>
+<main><div class="head"><div><h2>Öne Çıkan Ürünler</h2><p id="result"></p></div><select onchange="sortProducts(this.value)"><option value="default">Sırala</option><option value="low">En düşük fiyat</option><option value="high">En yüksek fiyat</option></select></div><div id="products" class="products"></div></main>
+<section class="stores"><h2>Öne Çıkan Mağazalar</h2><div class="storeGrid" id="stores"></div></section>
+<div id="modal" class="modal"><div id="modalBox" class="modalBox"></div></div>
+<footer><b>PazarX</b><span>© 2026 PazarX</span><span>Güvenli alışverişin yeni adresi.</span></footer>
+<script src="script.js"></script></body></html>

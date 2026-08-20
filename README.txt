@@ -1,24 +1,15 @@
-PAZARX 2.0
-============
-
-Bu paket PazarX'in geliştirilmiş frontend/demo sürümüdür.
-
-Özellikler:
-- Modern ana sayfa
-- Kategori filtreleri
-- Ürün arama
-- Fiyat sıralama
+PAZARX 3.0
+===========
+Yeni özellikler:
+- Ürün detay ekranı
+- Satıcı/mağaza sayfaları
+- Öne çıkan mağazalar
+- Ürün arama, filtreleme ve sıralama
 - Favoriler
 - Sepet
-- Demo giriş ekranı
-- Mobil uyumlu tasarım
+- Demo hesap ekranı
+- Mobil uyum
 
-YAYINLAMA:
-1. ZIP'i çıkar.
-2. İçindeki index.html, style.css ve script.js dosyalarını GitHub repository'ne yükle.
-3. GitHub > Settings > Pages bölümünden Pages'i aç.
-4. Branch: main, klasör: /root seç.
-5. Kaydet ve birkaç dakika bekle.
-
-NOT:
-Bu sürüm frontend/demo sürümüdür. Gerçek kullanıcı hesabı, veritabanı, satıcı paneli ve ödeme sistemi sonraki backend aşamasında bağlanabilir.
+GitHub Pages:
+index.html, style.css ve script.js aynı klasörde olmalıdır.
+Bu sürüm frontend/demo'dur; gerçek ödeme, veritabanı ve kullanıcı hesabı için backend gerekir.
