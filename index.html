@@ -3,205 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PazarX — Online Pazaryeri</title>
-
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f6f7fb;color:#171923}
-header{background:#fff;border-bottom:1px solid #eee}
-.top{background:#171923;color:#fff;text-align:center;padding:8px;font-size:13px}
-nav{height:70px;display:flex;align-items:center;gap:20px;padding:0 6%;max-width:1400px;margin:auto}
-.logo{font-size:28px;font-weight:900;text-decoration:none;color:#171923}
-.logo span{color:#6c4cff}
-.search{display:flex;flex:1;max-width:650px;margin:auto}
-.search input{flex:1;padding:14px;border:1px solid #ddd;border-radius:10px 0 0 10px;font-size:15px}
-.search button,.navbtn,.cart{border:0;padding:14px 18px;font-weight:bold;cursor:pointer}
-.search button{background:#6c4cff;color:#fff;border-radius:0 10px 10px 0}
-.navbtn{background:#eee;border-radius:10px}
-.cart{background:#171923;color:#fff;border-radius:10px}
-.hero{padding:80px 8%;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#fff,#eeeaff)}
-.hero h1{font-size:58px;line-height:1.05;margin:10px 0}
-.hero h1 span{color:#6c4cff}
-.hero p{color:#666;font-size:18px}
-.hero button{padding:16px 25px;border:0;border-radius:12px;background:#6c4cff;color:#fff;font-weight:bold;font-size:16px}
-.hero-card{background:#fff;padding:35px;border-radius:20px;box-shadow:0 15px 40px #0001;font-size:22px}
-.categories{display:flex;gap:10px;padding:25px 8%;overflow:auto;background:#fff}
-.categories button{border:1px solid #ddd;background:#fff;padding:12px 18px;border-radius:20px;white-space:nowrap;cursor:pointer}
-main{max-width:1250px;margin:auto;padding:45px 20px}
-.section-head{display:flex;justify-content:space-between;align-items:center}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.product{background:#fff;border:1px solid #e8e8ee;border-radius:16px;overflow:hidden;box-shadow:0 5px 20px #00000008}
-.product-img{height:180px;background:#eeeaff;display:flex;align-items:center;justify-content:center;font-size:65px}
-.product-info{padding:18px}
-.product h3{margin:0 0 8px}
-.price{font-size:22px;font-weight:bold;color:#6c4cff}
-.product button{width:100%;padding:12px;border:0;border-radius:10px;background:#171923;color:#fff;font-weight:bold;cursor:pointer}
-footer{margin-top:50px;background:#171923;color:#fff;text-align:center;padding:40px}
-.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center}
-.hidden{display:none}
-.modal-box{background:#fff;width:min(500px,90%);padding:30px;border-radius:18px}
-.close{float:right;border:0;background:none;font-size:28px;cursor:pointer}
-.cart-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee}
-.checkout{width:100%;padding:15px;background:#6c4cff;color:white;border:0;border-radius:10px;margin-top:20px;font-weight:bold}
-@media(max-width:800px){
-nav{padding:10px;height:auto;flex-wrap:wrap}
-.search{order:3;flex-basis:100%}
-.hero{padding:50px 7%;display:block}
-.hero h1{font-size:42px}
-.hero-card{margin-top:30px}
-.grid{grid-template-columns:1fr 1fr}
-}
-</style>
+<title>PazarX 2.0 — Online Pazaryeri</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<header>
-<div class="top">Türkiye'nin yeni nesil online pazaryeri</div>
-<nav>
-<a class="logo" href="#">Pazar<span>X</span></a>
-<div class="search">
-<input id="search" placeholder="Ürün, kategori veya marka ara...">
-<button onclick="searchProducts()">Ara</button>
-</div>
-<button class="navbtn" onclick="alert('Giriş sistemi yakında aktif olacak.')">Giriş Yap</button>
-<button class="cart" onclick="showCart()">🛒 Sepet <b id="cartCount">0</b></button>
-</nav>
+<header class="header">
+  <div class="logo">Pazar<span>X</span></div>
+  <div class="search"><input id="search" placeholder="Ürün, kategori veya marka ara..." oninput="searchProducts()"><button>🔎</button></div>
+  <div class="head-actions"><button onclick="openLogin()">👤 Giriş</button><button onclick="openCart()">🛒 <b id="count">0</b></button></div>
 </header>
-
+<nav class="nav">
+<button onclick="filter('Tümü')">Tümü</button><button onclick="filter('Elektronik')">Elektronik</button><button onclick="filter('Moda')">Moda</button><button onclick="filter('Ev Yaşam')">Ev Yaşam</button><button onclick="filter('Spor')">Spor</button><button onclick="filter('Güzellik')">Güzellik</button>
+</nav>
 <section class="hero">
-<div>
-<p>PAZARX'E HOŞ GELDİN</p>
-<h1>Aradığın her şey<br><span>tek yerde.</span></h1>
-<p>Elektronikten modaya, ev yaşamdan spora ürünlerini keşfet.</p>
-<button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Alışverişe Başla →</button>
-</div>
-<div class="hero-card">🔥 <strong>Fırsat Ürünleri</strong><br><small>Bugünün seçilmiş fırsatlarını keşfet.</small></div>
+<div><span class="badge">PAZARX 2.0</span><h1>Aradığın ne varsa<br><strong>tek yerde.</strong></h1><p>Binlerce ürün, avantajlı fiyatlar ve modern alışveriş deneyimi.</p><button class="primary" onclick="document.getElementById('products').scrollIntoView()">Alışverişe Başla →</button></div>
+<div class="hero-card">⚡<b>Büyük Fırsatlar</b><small>Bugünün seçili ürünleri</small></div>
 </section>
-
-<div class="categories">
-<button onclick="filterCategory('Tümü')">Tümü</button>
-<button onclick="filterCategory('Elektronik')">📱 Elektronik</button>
-<button onclick="filterCategory('Moda')">👕 Moda</button>
-<button onclick="filterCategory('Ev')">🏠 Ev & Yaşam</button>
-<button onclick="filterCategory('Spor')">⚽ Spor</button>
-</div>
-
+<section class="categories"><h2>Kategoriler</h2><div class="cat-grid">
+<button onclick="filter('Elektronik')">💻<b>Elektronik</b><small>Teknoloji</small></button>
+<button onclick="filter('Moda')">👕<b>Moda</b><small>Giyim</small></button>
+<button onclick="filter('Ev Yaşam')">🏠<b>Ev Yaşam</b><small>Yaşam</small></button>
+<button onclick="filter('Spor')">⚽<b>Spor</b><small>Spor & Outdoor</small></button>
+<button onclick="filter('Güzellik')">✨<b>Güzellik</b><small>Kişisel bakım</small></button>
+</div></section>
 <main>
-<div class="section-head">
-<div>
-<h2>Öne Çıkan Ürünler</h2>
-<p id="resultText">Senin için seçtiklerimiz</p>
-</div>
-<select id="sort" onchange="renderProducts()">
-<option value="default">Sıralama</option>
-<option value="low">Fiyat: düşükten yükseğe</option>
-<option value="high">Fiyat: yüksekten düşüğe</option>
-</select>
-</div>
-
-<div id="products" class="grid"></div>
+<div class="section-head"><div><h2>Öne Çıkan Ürünler</h2><p id="resultText"></p></div>
+<select onchange="sortProducts(this.value)"><option value="default">Sırala</option><option value="low">Fiyat: düşükten yükseğe</option><option value="high">Fiyat: yüksekten düşüğe</option></select></div>
+<div id="products" class="products"></div>
 </main>
-
-<div id="modal" class="modal hidden">
-<div class="modal-box">
-<button class="close" onclick="closeModal()">×</button>
-<h2>Sepetin</h2>
-<div id="cartItems"></div>
-<hr>
-<div>Toplam: <b id="total">₺0</b></div>
-<button class="checkout" onclick="checkout()">Siparişi Tamamla</button>
-</div>
-</div>
-
-<footer>
-<div class="logo">Pazar<span>X</span></div>
-<p>Güvenli alışveriş. Hızlı teslimat. Mutlu müşteriler.</p>
-<small>© 2026 PazarX</small>
-</footer>
-
-<script>
-const products=[
-{id:1,name:"Akıllı Telefon",category:"Elektronik",price:24999,icon:"📱"},
-{id:2,name:"Gaming Laptop",category:"Elektronik",price:42999,icon:"💻"},
-{id:3,name:"Kablosuz Kulaklık",category:"Elektronik",price:2499,icon:"🎧"},
-{id:4,name:"Sneaker",category:"Moda",price:1999,icon:"👟"},
-{id:5,name:"Erkek Tişört",category:"Moda",price:699,icon:"👕"},
-{id:6,name:"Kahve Makinesi",category:"Ev",price:3499,icon:"☕"},
-{id:7,name:"Spor Ayakkabı",category:"Spor",price:2299,icon:"⚽"},
-{id:8,name:"Akıllı Saat",category:"Elektronik",price:4999,icon:"⌚"}
-];
-
-let activeCategory="Tümü";
-let cart=[];
-
-function renderProducts(){
-let list=products.filter(p=>activeCategory==="Tümü"||p.category===activeCategory);
-let sort=document.getElementById("sort").value;
-if(sort==="low")list.sort((a,b)=>a.price-b.price);
-if(sort==="high")list.sort((a,b)=>b.price-a.price);
-
-document.getElementById("products").innerHTML=list.map(p=>`
-<div class="product">
-<div class="product-img">${p.icon}</div>
-<div class="product-info">
-<h3>${p.name}</h3>
-<p>${p.category}</p>
-<div class="price">₺${p.price.toLocaleString("tr-TR")}</div>
-<br>
-<button onclick="addCart(${p.id})">Sepete Ekle</button>
-</div>
-</div>`).join("");
-
-document.getElementById("resultText").textContent=list.length+" ürün gösteriliyor";
-}
-
-function filterCategory(category){
-activeCategory=category;
-renderProducts();
-}
-
-function searchProducts(){
-let q=document.getElementById("search").value.toLowerCase();
-let list=products.filter(p=>p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q));
-activeCategory="Tümü";
-document.getElementById("products").innerHTML=list.map(p=>`
-<div class="product">
-<div class="product-img">${p.icon}</div>
-<div class="product-info">
-<h3>${p.name}</h3>
-<p>${p.category}</p>
-<div class="price">₺${p.price.toLocaleString("tr-TR")}</div>
-<br><button onclick="addCart(${p.id})">Sepete Ekle</button>
-</div>
-</div>`).join("");
-}
-
-function addCart(id){
-cart.push(products.find(p=>p.id===id));
-document.getElementById("cartCount").textContent=cart.length;
-alert("Ürün sepete eklendi!");
-}
-
-function showCart(){
-document.getElementById("modal").classList.remove("hidden");
-let total=cart.reduce((s,p)=>s+p.price,0);
-document.getElementById("cartItems").innerHTML=cart.length?
-cart.map(p=>`<div class="cart-row"><span>${p.icon} ${p.name}</span><b>₺${p.price.toLocaleString("tr-TR")}</b></div>`).join(""):
-"<p>Sepetiniz boş.</p>";
-document.getElementById("total").textContent="₺"+total.toLocaleString("tr-TR");
-}
-
-function closeModal(){
-document.getElementById("modal").classList.add("hidden");
-}
-
-function checkout(){
-alert("Sipariş sistemi yakında aktif olacak.");
-}
-
-renderProducts();
-</script>
-
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modal-box" id="modalContent"></div></div>
+<footer><b>PazarX</b><span>© 2026 PazarX — Online Pazaryeri</span><span>Güvenli alışverişin yeni adresi.</span></footer>
+<script src="script.js"></script>
 </body>
 </html>
